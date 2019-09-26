@@ -7,18 +7,26 @@ To install `bestblasthit`,
  cd bestblasthit; make
 ```
 
+Optionally then copy the compiled binary to the bin folder or somewhere else that is on your PATH
+
 Example
 --------------
 
 The included sample blast output file has multiple query hits for two sequences. We want to drop all but the two top hits, in addition to skipping hits that are to themselves (i.e. seq1 to seq1)
 
-To run on the example data:
+To test the program, run blastn on the sample fasta file and then pipe the output to bestblasthit:
 ```sh
-cat example.blastn | ./bestblasthit 
+blastn -subject tests/example.fasta -query tests/example.fasta -outfmt 6 -word_size 5 | ./bestblasthit  
 ```
-Output are only the single top hit for each subject sequence, and should look like
+*If you already have output from a blast run you can pipe it to the bestblasthit binary:
 ```sh
-seq1	seq2	100.000	64	0	0	1	64	1	64	7.91e-33	119
-seq2	seq1	100.000	64	0	0	1	64	1	64	7.91e-33	119
+cat tests/example.blastn | ./bestblasthit
+```
+
+
+Output is only the single top hit for each subject sequence, and should look like
+```sh
+seq1	seq2	100.000	50	0	0	1	50	1	50	2.86e-25	93.5
+seq2	seq1	100.000	50	0	0	1	50	1	50	2.86e-25	93.5
 ```
 

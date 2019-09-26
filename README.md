@@ -9,8 +9,8 @@ To install `bestblasthit`,
 
 Optionally then copy the compiled binary to the bin folder or somewhere else that is on your PATH
 
-## Example
 --------------
+## Example
 
 The included sample blast output file has multiple query hits for two sequences. We want to drop all but the two top hits, in addition to skipping hits that are to themselves (i.e. seq1 to seq1)
 

@@ -42,6 +42,7 @@ int main() {
 							continue;
 						}else{
 							printf("%s", out);
+							fflush(stdout);
 						}
 					}
 				}
